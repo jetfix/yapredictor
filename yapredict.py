@@ -19,12 +19,12 @@ except:
     url_quote = urllib.parse.quote_plus
     unicode = str
 
-class PredictLang:
+class PredictLang(object):
 	'''Simple enum with list of supported languages. Currently it is only `ru' and `eng'.'''
 	ru = 'ru'
 	en = 'en'
 
-class Prediction:
+class Prediction(object):
 	'''Response from completer.
 	If you use predictor.complete() - look at implementation of Prediction.new_words().
 	For complete_list just use Prediction.variants attribute. It contains a list of potential replacers.'''
@@ -47,7 +47,7 @@ class Prediction:
 			return words
 		return words[:self.pos] + self.text
 
-class YaPredictor:
+class YaPredictor(object):
 	'''Pretty naive implementation of predictive input trough Yandex Predicition API.
 	Typical usage is:
 	>> p = YaPredictor(PredictLang.ru)

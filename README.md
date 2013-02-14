@@ -5,6 +5,7 @@ Simple wrapper for Yandex prediction typing API.
 Typical usage is:
 
 ```python
+>> from yapredict import YaPredictor, PredictLang
 >> p = YaPredictor(PredictLang.ru)
 >> p.complete_list('проверка').variants
 ["проверка", "проверка наличия","проверка скорости","проверка наличия номеров","проверка на",

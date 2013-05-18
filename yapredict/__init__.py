@@ -69,10 +69,11 @@ class YaPredictor(object):
     URL = "http://predictor.yandex.net/suggest.json/"
     URL_COMPLETE = URL + 'complete'
     URL_GET = URL + 'get'
-    URL_S = "?site=mt-{lang}&q={words}&v=0"
+    URL_S = "?site=mt-{lang}&q={words}&v=0&key={key}"
 
-    def __init__(self, language):
+    def __init__(self, language, key):
         self.lang(language)
+        self.api_key = key
 
     def lang(self, language):
         '''Set prediction language. From PredictLang enum.'''
@@ -80,7 +81,7 @@ class YaPredictor(object):
 
     def get_complete_url(self, words, full = False):
         url = (self.URL_GET if full else self.URL_COMPLETE) + self.URL_S
-        return url.format(lang = self.mt_lang, words = url_quote(words))
+        return url.format(lang=self.mt_lang, words=url_quote(words), key=self.api_key)
 
     def complete(self, words):
         '''Return one prediction for given words.'''

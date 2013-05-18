@@ -21,9 +21,16 @@ except:
     unicode = str
 
 class PredictLang(object):
-    '''Simple enum with list of supported languages. Currently it is only `ru' and `eng'.'''
-    ru = 'ru'
-    en = 'en'
+    '''Simple enum with list of supported languages.'''
+    ru = 'ru' # Russian
+    en = 'en' # English
+    pl = 'pl' # Polish
+    uk = 'uk' # Ukrainian
+    de = 'de' # German
+    fr = 'fr' # French
+    es = 'es' # Spanish
+    it = 'it' # Italian
+    tr = 'tr' # Turkish
 
 class Prediction(object):
     '''Response from completer.

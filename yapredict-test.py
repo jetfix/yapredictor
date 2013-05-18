@@ -82,6 +82,11 @@ class TestPredictFunctions(unittest.TestCase):
 		self.assertEqual(p.variants[0], 'проверь меня')
 		self.assertEqual(len(p.variants), 1)
 
+	def test_new_languages(self):
+		p = YaPredictor(PredictLang.fr)
+		words = p.complete_list('bonjou')
+		self.assertIn('bonjour', words.variants)
+
 
 if __name__ == '__main__':
 	setlocale(LC_ALL)
